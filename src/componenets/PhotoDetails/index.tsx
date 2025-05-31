@@ -53,7 +53,7 @@ const PhotoDetails: React.FC = () => {
           </div>
           <div className={styles.imageWrapper}>
             <img
-              src={photo.src.medium} // fallback
+              src={photo.src.medium} 
               srcSet={`
     ${photo.src.small} 480w,
     ${photo.src.medium} 800w,
