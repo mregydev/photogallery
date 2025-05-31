@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { fetchPhotoById, type PexelsPhoto } from '../../utils/pexels';
 import Spinner from '../Spinner';
 import styles from './PhotoDetails.module.scss';
-import { preload } from 'react-dom';
+
 
 const PhotoDetails: React.FC = () => {
   const { id } = useParams();
