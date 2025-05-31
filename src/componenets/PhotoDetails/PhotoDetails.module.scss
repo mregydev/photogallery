@@ -1,0 +1,51 @@
+.details {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .mainPageLink {
+    display: block;
+    width:100px;
+    
+    padding: 0.5rem 1rem;
+    background: #eee;
+    
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 1rem auto;
+  }
+  
+  .imageWrapper {
+    width: 100%;
+    background: #f3f3f3;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .meta {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: #444;
+    text-align: left;
+    h2 {
+      margin-bottom: 0.5rem;
+    }
+  
+    p {
+      margin: 0.25rem 0;
+    }
+  }
+  
+  .error {
+    padding: 2rem;
+    text-align: center;
+    color: red;
+  }
+  
