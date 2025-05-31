@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { fetchPhotoById, type PexelsPhoto } from '../../utils/pexels';
 import Spinner from '../Spinner';
 import styles from './PhotoDetails.module.scss';
+import { preload } from 'react-dom';
 
 const PhotoDetails: React.FC = () => {
   const { id } = useParams();
@@ -11,6 +12,7 @@ const PhotoDetails: React.FC = () => {
   const [photo, setPhoto] = useState<PexelsPhoto | null>(null);
   const [loading, setLoading] = useState(true);
 
+  
   useEffect(() => {
     const loadPhoto = async () => {
       if (!id) return;
@@ -29,8 +31,6 @@ const PhotoDetails: React.FC = () => {
   }, [id]);
 
   
-  if (!photo) return <div className={styles.error}>Photo not found</div>;
-
   return (
     <div className={styles.details}>
       <Link to={'/'} className={styles.mainPageLink}>
@@ -41,24 +41,30 @@ const PhotoDetails: React.FC = () => {
           <Spinner />
         </div>
       )}
-      <div className={styles.detailsWrapper}>
-        <div className={styles.imageWrapper}>
-          <img src={photo.src.large} alt={photo.alt} className={styles.image} />
-        </div>
-
-        <div className={styles.meta}>
-          <h2>{photo.alt || 'Untitled Photo'}</h2>
-          <p>
-            <strong>Photographer:</strong> {photo.photographer}
-          </p>
-          <p>
-            <strong>Dimensions:</strong> {photo.width} × {photo.height}
-          </p>
-          <p>
-            <strong>ID:</strong> {photo.id}
-          </p>
-        </div>
-      </div>
+      {!!photo && (
+        <>
+          <div className={styles.meta}>
+            <h2>{photo.alt || 'Untitled Photo'}</h2>
+            <p>
+              <strong>Photographer:</strong> {photo.photographer}
+            </p>
+            <p>
+              <strong>Dimensions:</strong> {photo.width} × {photo.height}
+            </p>
+            <p>
+              <strong>ID:</strong> {photo.id}
+            </p>
+          </div>
+          <div className={styles.imageWrapper}>
+            <img
+              src={photo.src.large}
+              alt={photo.alt}
+              className={styles.image}
+              loading='lazy'
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 };
