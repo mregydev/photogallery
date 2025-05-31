@@ -41,21 +41,23 @@ const PhotoDetails: React.FC = () => {
           <Spinner />
         </div>
       )}
-      <div className={styles.imageWrapper}>
-        <img src={photo.src.large} alt={photo.alt} className={styles.image} />
-      </div>
+      <div className={styles.detailsWrapper}>
+        <div className={styles.imageWrapper}>
+          <img src={photo.src.large} alt={photo.alt} className={styles.image} />
+        </div>
 
-      <div className={styles.meta}>
-        <h2>{photo.alt || 'Untitled Photo'}</h2>
-        <p>
-          <strong>Photographer:</strong> {photo.photographer}
-        </p>
-        <p>
-          <strong>Dimensions:</strong> {photo.width} × {photo.height}
-        </p>
-        <p>
-          <strong>ID:</strong> {photo.id}
-        </p>
+        <div className={styles.meta}>
+          <h2>{photo.alt || 'Untitled Photo'}</h2>
+          <p>
+            <strong>Photographer:</strong> {photo.photographer}
+          </p>
+          <p>
+            <strong>Dimensions:</strong> {photo.width} × {photo.height}
+          </p>
+          <p>
+            <strong>ID:</strong> {photo.id}
+          </p>
+        </div>
       </div>
     </div>
   );
