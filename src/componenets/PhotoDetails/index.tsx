@@ -28,22 +28,34 @@ const PhotoDetails: React.FC = () => {
     loadPhoto();
   }, [id]);
 
-  if (loading) return <Spinner />;
+  
   if (!photo) return <div className={styles.error}>Photo not found</div>;
 
   return (
     <div className={styles.details}>
-      <Link to={"/"} className={styles.mainPageLink}>Main Page</Link>
-
+      <Link to={'/'} className={styles.mainPageLink}>
+        Main Page
+      </Link>
+      {loading && (
+        <div className={styles.loading}>
+          <Spinner />
+        </div>
+      )}
       <div className={styles.imageWrapper}>
         <img src={photo.src.large} alt={photo.alt} className={styles.image} />
       </div>
 
       <div className={styles.meta}>
         <h2>{photo.alt || 'Untitled Photo'}</h2>
-        <p><strong>Photographer:</strong> {photo.photographer}</p>
-        <p><strong>Dimensions:</strong> {photo.width} × {photo.height}</p>
-        <p><strong>ID:</strong> {photo.id}</p>
+        <p>
+          <strong>Photographer:</strong> {photo.photographer}
+        </p>
+        <p>
+          <strong>Dimensions:</strong> {photo.width} × {photo.height}
+        </p>
+        <p>
+          <strong>ID:</strong> {photo.id}
+        </p>
       </div>
     </div>
   );
