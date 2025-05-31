@@ -4,15 +4,12 @@ import { fetchPhotoById, type PexelsPhoto } from '../../utils/pexels';
 import Spinner from '../Spinner';
 import styles from './PhotoDetails.module.scss';
 
-
 const PhotoDetails: React.FC = () => {
   const { id } = useParams();
-  
 
   const [photo, setPhoto] = useState<PexelsPhoto | null>(null);
   const [loading, setLoading] = useState(true);
 
-  
   useEffect(() => {
     const loadPhoto = async () => {
       if (!id) return;
@@ -30,7 +27,6 @@ const PhotoDetails: React.FC = () => {
     loadPhoto();
   }, [id]);
 
-  
   return (
     <div className={styles.details}>
       <Link to={'/'} className={styles.mainPageLink}>
@@ -57,7 +53,12 @@ const PhotoDetails: React.FC = () => {
           </div>
           <div className={styles.imageWrapper}>
             <img
-              src={photo.src.large}
+              src={photo.src.medium} // fallback
+              srcSet={`
+    ${photo.src.small} 480w,
+    ${photo.src.medium} 800w,
+    ${photo.src.large} 1200w
+  `}
               alt={photo.alt}
               className={styles.image}
               loading='lazy'
