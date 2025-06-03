@@ -24,7 +24,6 @@ const ListItem: React.FC<ListItemProps> = ({ photo }) => {
           src={photo.src.medium}
           alt={photo.alt}
           width={250}
-          height={300}
           loading='lazy'
         />
         <Caption>
