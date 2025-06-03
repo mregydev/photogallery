@@ -18,7 +18,7 @@ const Overlay = styled.div`
   justify-content: center;
 `;
 
-const SpinnerCircle = styled.div`
+const SpinnerCircle = styled.div.attrs({ role: 'status' })`
   margin: 2rem auto;
   width: 32px;
   height: 32px;

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { fetchPhotoById, type PexelsPhoto } from '../utils/pexels';
-import Spinner from './ui/Spinner';
-import { Image } from './ui/Image';
+import { fetchPhotoById, type PexelsPhoto } from '../../DAL/pexels';
+import Spinner from '../ui/Spinner';
+import { Image } from '../ui/Image';
 
 const Container = styled.div`
   padding: 2rem;

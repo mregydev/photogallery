@@ -8,6 +8,8 @@ export const useIntersectionObserver = (
   useEffect(() => {
     if (!ref.current) return;
 
+    const currentElement=ref.current;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsIntersecting(entry.isIntersecting);
@@ -18,10 +20,10 @@ export const useIntersectionObserver = (
       }
     );
 
-    observer.observe(ref.current);
+    observer.observe(currentElement);
 
     return () => {
-      if (ref.current) observer.unobserve(ref.current);
+      if (currentElement) observer.unobserve(currentElement);
     };
   }, [ref]);
 

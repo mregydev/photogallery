@@ -1,8 +1,8 @@
 import React from 'react';
-import { type PexelsPhoto } from '../utils/pexels';
-import { Card } from './ui/Card';
-import { AppLink } from './ui/AppLink';
-import {Image} from './ui/Image';
+import { type PexelsPhoto } from '../../DAL/pexels';
+import { Card } from '../ui/Card';
+import { AppLink } from '../ui/AppLink';
+import {Image} from '../ui/Image';
 import styled from 'styled-components';
 
 export interface ListItemProps {

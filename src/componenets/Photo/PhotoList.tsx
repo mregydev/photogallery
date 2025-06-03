@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Grid } from './ui/Card';
-import Spinner from './ui/Spinner';
-import { fetchPexelsPhotos, type PexelsPhoto } from '../utils/pexels';
+import { Grid } from '../ui/Grid';
+import Spinner from '../ui/Spinner';
+import { fetchPexelsPhotos, type PexelsPhoto } from '../../DAL/pexels';
 import ListItem from './PhotoListItem';
-import { useIntersectionObserver } from '../utils/virtualization';
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import styled from 'styled-components';
 
 const Loader = styled.div`
