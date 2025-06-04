@@ -1,4 +1,3 @@
-// utils/pexels.ts
 import { apiFetch } from './api';
 
 export interface PexelsPhoto {
