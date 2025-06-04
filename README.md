@@ -1,54 +1,82 @@
-# React + TypeScript + Vite
+# Pexels Photo Grid App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project displays a responsive photo gallery fetched from the Pexels API. It includes virtualization and performance optimizations for smooth user experience on both desktop and mobile.
 
-Currently, two official plugins are available:
+## 🚀 Running the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To start the development server:
 
-## Expanding the ESLint configuration
+npm run dev
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Features
+📷 Responsive Grid Layout
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Automatically adjusts layout based on screen width:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+4 columns on desktop
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+2 columns on tablets
+
+1 column on mobile
+
+## 💤 Partial Virtualization
+
+Images are not loaded until they enter the viewport
+
+✅ Can be extended to full virtualization by rendering only visible components with scroll tracking
+
+## 🖼 Lazy Image Loading
+
+Images use loading="lazy" to defer network requests until needed
+
+## ⚡ High Performance
+
+Minimal DOM nodes rendered
+
+Prevents layout shift using fixed placeholders
+
+Efficient rendering strategy improves frame rates during scroll
+
+## 🧪 Testing
+This project includes support for unit and DOM testing using modern libraries:
+
+✅ Vitest – test runner
+
+✅ @testing-library/react – for component-level testing
+
+✅ @testing-library/jest-dom – for readable DOM assertions
+
+⚠️ Note: Not all components have complete test coverage yet.
+
+## 📊 Core Web Vitals
+The app has been tested for Core Web Vitals on both mobile and desktop:
+
+✅ All scores are above 90
+
+🧩 Metrics tested include:
+
+First Contentful Paint (FCP)
+
+Largest Contentful Paint (LCP)
+
+Total Blocking Time (TBT)
+
+Cumulative Layout Shift (CLS)
+
+Performance is achieved through:
+
+Lazy rendering via IntersectionObserver
+
+Minimal layout reflows
+
+Optimized image handling
+
+
+## 🧭 Future Improvements
+🔁 Upgrade to full virtualization with absolute positioning and scroll window tracking
+
+📈 Add test coverage for all core components
+
+🎨 Use skeleton loaders or blur-up effects for smoother UX
+
